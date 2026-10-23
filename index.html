@@ -1,45 +1,29 @@
 <!DOCTYPE html>
-
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<!-- Ícones principais --><!-- Apple (iOS) -->
-<link href="./images/icon_192.png" rel="apple-touch-icon"/>
-<!-- Preload opcional para o SVG se quiser -->
-<link as="image" href="./images/icon.svg" imagesizes="23px" rel="preload"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>BiblioVerse — A Biblioteca da Música — Catálogo pesquisável do essencial da música por categoria</title>
+<meta content="Catálogo pesquisável do essencial da música por categoria: streaming, gêneros, gravadoras, instrumentos, conceitos, produção, festivais e artistas. O projeto é minimalista e ideal para colocar nos favoritos do seu navegador." name="description"/>
+<link href="https://music.biblioverse.org/" rel="canonical"/>
 <meta content="#0e1117" name="theme-color"/>
 <meta content="yes" name="mobile-web-app-capable"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
-<title>BiblioVerse — A Biblioteca da Música — Catálogo pesquisável do essencial da música por categoria</title>
 <!-- App icons -->
 <link href="images/icon.svg" rel="icon" type="image/svg+xml"/>
 <link href="images/icon_192.png" rel="icon" sizes="192x192" type="image/png"/>
 <link href="images/icon_512.png" rel="icon" sizes="512x512" type="image/png"/>
 <link href="images/icon_192.png" rel="apple-touch-icon"/>
-<meta content="#0e1117" name="theme-color"/>
 <link href="manifest.webmanifest" rel="manifest"/>
-<meta content="Catálogo pesquisável do essencial da música por categoria: streaming, gêneros, gravadoras, instrumentos, conceitos, produção, festivais e artistas. O projeto é minimalista e ideal para colocar nos favoritos do seu navegador." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link as="style" href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&amp;display=swap" onload="this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&amp;display=swap" rel="stylesheet"/></noscript>
 <link as="style" href="styles.css" onload="this.rel='stylesheet'" rel="preload"/><noscript><link href="styles.css" rel="stylesheet"/></noscript>
-<link href="./manifest.webmanifest" rel="manifest"/>
+<script src="https://biblioverse.org/superbar.js" defer></script>
 </head>
 <body>
-<!-- Super-bar: 8 equal tabs across the full width -->
-<nav aria-label="Bibliotecas" class="superbar">
-<div class="superbar-toggle"><span class="superbar-title i18n-superbar-title">BiblioVerse - A Biblioteca de Tudo</span> <span aria-hidden="true" class="icon-burger"><i></i><i></i><i></i></span><span aria-hidden="true" class="icon-close">✕</span></div>
-<ul class="superbar-list">
-<li class="superbar-item"><a data-key="design" href="https://design.biblioverse.org">Design</a></li>
-<li class="superbar-item"><a data-key="games" href="https://games.biblioverse.org">Games</a></li>
-<li class="superbar-item"><a data-key="language" href="https://language.biblioverse.org">Idiomas</a></li>
-<li class="superbar-item"><a data-key="ai" href="https://ai.biblioverse.org">IA</a></li>
-<li class="superbar-item active"><a data-key="music" href="https://music.biblioverse.org">Música</a></li>
-<li class="superbar-item"><a data-key="coding" href="https://code.biblioverse.org">Programação</a></li>
-<li class="superbar-item"><a data-key="social" href="https://social.biblioverse.org">Redes Sociais</a></li>
-</ul>
-</nav>
+<!-- BiblioVerse Superbar -->
+<nav id="bvbar" class="bvbar" data-current="music" aria-label="BiblioVerse" style="position:fixed;top:0;left:0;right:0;height:44px;z-index:9000;background:linear-gradient(90deg,#4f7cff,#7a5cff)"><a href="https://biblioverse.org" style="color:#fff;line-height:44px;padding:0 14px;font-weight:700;text-decoration:none;font-family:sans-serif">BiblioVerse</a></nav>
 <aside aria-label="Categorias" class="sidepush" id="sidepush"><div class="sidepush-top"><button aria-label="Expandir menu" class="side-toggle" id="menuToggle" title="Expandir menu" type="button">▶</button></div><nav class="sidepush-scroll" id="sideScroll"><ul class="sidepush-menu" id="sideMenu"></ul></nav></aside><div class="push-wrap" id="pushWrap"><header class="site-header">
 <div class="header-inner container">
 <div class="brand-wrap">
@@ -56,15 +40,9 @@
       BETA
     </span>
 </h1>
-<span class="byline">
-<span class="i18n-by">Idealizada por</span>
-<a class="bylink" href="https://instagram.com/jvlioczar" rel="noopener noreferrer" target="_blank">Julio Cesar Prava</a>
-<span class="i18n-and"></span>
-<a class="bylink" href="" rel="noopener noreferrer" target="_blank"></a>
-</span>
 </div>
 <div class="controls">
-<input autofocus="" class="mono" id="search" placeholder="Buscar por nome" type="search"/>
+<input class="mono" id="search" placeholder="Buscar por nome" type="search"/>
 <select class="mono" id="categoryFilter" title="Filtrar por categoria"></select>
 <div class="control-group">
 <button aria-label="Alternar tema" class="toggle" id="themeToggle" type="button">☀️</button>
@@ -84,7 +62,7 @@
       <span id="count">0</span>
 <span class="i18n-items">itens</span>
 <span class="sep">|</span>
-<span class="i18n-lastupdate">Última atualização: Setembro/2026</span>
+<span class="i18n-lastupdate">Última atualização: Outubro/2026</span>
 </div>
 <p class="footer-lead">
 <span class="i18n-footer-lead-pre">O projeto</span>
@@ -94,7 +72,7 @@
 <p class="footer-note i18n-bookmarkShare">Salve esse projeto nos seus favoritos e compartilhe!</p>
 <p class="footer-nav"><span class="i18n-footernav">Acesse as bibliotecas de outros temas úteis no <strong class="bverse-strong">BiblioVerse</strong>.</span></p>
 <div class="footer-actions">
-<a class="btn linkedin mono" href="https://linkedin.com/in/juliocesarprava/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+<a class="btn linkedin mono" href="https://www.linkedin.com/company/biblioverse.org" rel="noopener noreferrer" target="_blank">LinkedIn</a>
 <button aria-label="Favoritar" class="btn star mono" id="favBtn" type="button">⭐</button>
 <button class="btn share mono" id="shareBtn" type="button"><span class="i18n-share">Compartilhar</span></button>
 <a class="btn bverse mono" href="https://biblioverse.org" rel="noopener noreferrer" target="_blank">BiblioVerse</a>
@@ -345,7 +323,7 @@
   {
     "category": "Aplicativos de ensino",
     "name": "GuitarTuna",
-    "url": "https://yousician.com/guitartuna",
+    "url": "https://guitartuna.com/",
     "description": "",
     "tags": []
   },
@@ -403,7 +381,7 @@
   {
     "category": "Aplicativos de ensino",
     "name": "Smule",
-    "url": "http://smule.com",
+    "url": "https://smule.com",
     "description": "",
     "tags": []
   },
@@ -2247,7 +2225,7 @@
   {
     "category": "Avaliação e bancos de dados",
     "name": "Rate Your Music",
-    "url": "http://rateyourmusic.com",
+    "url": "https://rateyourmusic.com",
     "description": "",
     "tags": [],
     "featured": true
@@ -2955,7 +2933,7 @@
   {
     "category": "Direitos autorais e associações",
     "name": "APRA AMCOS",
-    "url": "http://www.apraamcos.com.au/",
+    "url": "https://www.apraamcos.com.au/",
     "description": "",
     "tags": []
   },
@@ -2977,7 +2955,7 @@
   {
     "category": "Direitos autorais e associações",
     "name": "Creative Commons",
-    "url": "https://en.wikipedia.org/wiki/Creative_Commons_license",
+    "url": "https://creativecommons.org/",
     "description": "",
     "tags": []
   },
@@ -3048,14 +3026,14 @@
   {
     "category": "Direitos autorais e associações",
     "name": "SOCAN",
-    "url": "http://www.socan.com/",
+    "url": "https://www.socan.com/",
     "description": "",
     "tags": []
   },
   {
     "category": "Direitos autorais e associações",
     "name": "SoundExchange",
-    "url": "http://www.soundexchange.com/",
+    "url": "https://www.soundexchange.com/",
     "description": "",
     "tags": []
   },
@@ -3083,7 +3061,7 @@
   {
     "category": "Distribuição e ferramentas para artistas",
     "name": "AWAL",
-    "url": "http://www.awal.com/",
+    "url": "https://www.awal.com/",
     "description": "",
     "tags": []
   },
@@ -3170,7 +3148,7 @@
   {
     "category": "Distribuição e ferramentas para artistas",
     "name": "TuneCore",
-    "url": "http://www.tunecore.com",
+    "url": "https://www.tunecore.com",
     "description": "",
     "tags": []
   },
@@ -3207,7 +3185,7 @@
   {
     "category": "Festivais",
     "name": "Download Festival",
-    "url": "http://www.downloadfestival.co.uk",
+    "url": "https://www.downloadfestival.co.uk",
     "description": "",
     "tags": []
   },
@@ -3244,7 +3222,7 @@
   {
     "category": "Festivais",
     "name": "Glastonbury",
-    "url": "http://www.glastonburyfestivals.co.uk",
+    "url": "https://www.glastonburyfestivals.co.uk",
     "description": "",
     "tags": [],
     "featured": true
@@ -3283,28 +3261,28 @@
   {
     "category": "Festivais",
     "name": "Montreux Jazz Festival",
-    "url": "http://www.montreuxjazzfestival.com",
+    "url": "https://www.montreuxjazzfestival.com",
     "description": "",
     "tags": []
   },
   {
     "category": "Festivais",
     "name": "Primavera Sound",
-    "url": "http://www.primaverasound.com/",
+    "url": "https://www.primaverasound.com/",
     "description": "",
     "tags": []
   },
   {
     "category": "Festivais",
     "name": "Reading e Leeds",
-    "url": "http://www.readingfestival.com/",
+    "url": "https://www.readingfestival.com/",
     "description": "",
     "tags": []
   },
   {
     "category": "Festivais",
     "name": "Rock in Rio",
-    "url": "http://rockinrio.com/",
+    "url": "https://rockinrio.com/",
     "description": "",
     "tags": [],
     "featured": true
@@ -3312,7 +3290,7 @@
   {
     "category": "Festivais",
     "name": "Roskilde",
-    "url": "http://roskilde-festival.dk/",
+    "url": "https://roskilde-festival.dk/",
     "description": "",
     "tags": []
   },
@@ -3326,7 +3304,7 @@
   {
     "category": "Festivais",
     "name": "Sziget",
-    "url": "http://szigetfestival.com/",
+    "url": "https://szigetfestival.com/",
     "description": "",
     "tags": []
   },
@@ -3647,7 +3625,7 @@
   {
     "category": "Formatos de áudio",
     "name": "Dolby Atmos",
-    "url": "https://en.wikipedia.org/wiki/Dolby_Atmos",
+    "url": "https://www.dolby.com/technologies/dolby-atmos/",
     "description": "",
     "tags": []
   },
@@ -3750,7 +3728,7 @@
   {
     "category": "Gravadoras",
     "name": "4AD",
-    "url": "http://www.4ad.com/",
+    "url": "https://www.4ad.com/",
     "description": "",
     "tags": []
   },
@@ -3778,14 +3756,14 @@
   {
     "category": "Gravadoras",
     "name": "Blue Note Records",
-    "url": "http://www.bluenote.com/",
+    "url": "https://www.bluenote.com/",
     "description": "",
     "tags": []
   },
   {
     "category": "Gravadoras",
     "name": "Capitol Records",
-    "url": "http://www.capitolrecords.com/",
+    "url": "https://www.capitolrecords.com/",
     "description": "",
     "tags": []
   },
@@ -3800,7 +3778,7 @@
   {
     "category": "Gravadoras",
     "name": "Columbia Records",
-    "url": "http://www.columbiarecords.com",
+    "url": "https://www.columbiarecords.com",
     "description": "",
     "tags": []
   },
@@ -3815,14 +3793,14 @@
   {
     "category": "Gravadoras",
     "name": "Deckdisc",
-    "url": "http://www.deckdisc.com.br/",
+    "url": "https://www.deckdisc.com.br/",
     "description": "",
     "tags": []
   },
   {
     "category": "Gravadoras",
     "name": "Def Jam Recordings",
-    "url": "http://www.defjam.com/",
+    "url": "https://www.defjam.com/",
     "description": "",
     "tags": []
   },
@@ -3843,7 +3821,7 @@
   {
     "category": "Gravadoras",
     "name": "Elektra Records",
-    "url": "http://www.elektra.com",
+    "url": "https://www.elektra.com",
     "description": "",
     "tags": []
   },
@@ -3858,7 +3836,7 @@
   {
     "category": "Gravadoras",
     "name": "Epic Records",
-    "url": "http://www.epicrecords.com",
+    "url": "https://www.epicrecords.com",
     "description": "",
     "tags": []
   },
@@ -3916,7 +3894,7 @@
   {
     "category": "Gravadoras",
     "name": "RCA Records",
-    "url": "http://www.rcarecords.com",
+    "url": "https://www.rcarecords.com",
     "description": "",
     "tags": []
   },
@@ -3930,14 +3908,14 @@
   {
     "category": "Gravadoras",
     "name": "Roc Nation",
-    "url": "http://www.rocnation.com/",
+    "url": "https://www.rocnation.com/",
     "description": "",
     "tags": []
   },
   {
     "category": "Gravadoras",
     "name": "Rough Trade Records",
-    "url": "http://www.roughtraderecords.com",
+    "url": "https://www.roughtraderecords.com",
     "description": "",
     "tags": []
   },
@@ -3951,7 +3929,7 @@
   {
     "category": "Gravadoras",
     "name": "Som Livre",
-    "url": "http://www.somlivre.com",
+    "url": "https://www.somlivre.com",
     "description": "",
     "tags": []
   },
@@ -3980,7 +3958,7 @@
   {
     "category": "Gravadoras",
     "name": "Sun Records",
-    "url": "http://www.sunrecords.com",
+    "url": "https://www.sunrecords.com",
     "description": "",
     "tags": []
   },
@@ -4003,7 +3981,7 @@
   {
     "category": "Gravadoras",
     "name": "Virgin Records",
-    "url": "http://www.virginmusic.com",
+    "url": "https://www.virginmusic.com",
     "description": "",
     "tags": []
   },
@@ -4018,14 +3996,14 @@
   {
     "category": "Gravadoras",
     "name": "Warp Records",
-    "url": "http://warp.net/",
+    "url": "https://warp.net/",
     "description": "",
     "tags": []
   },
   {
     "category": "Gravadoras",
     "name": "XL Recordings",
-    "url": "http://www.xlrecordings.com/",
+    "url": "https://www.xlrecordings.com/",
     "description": "",
     "tags": []
   },
@@ -6062,7 +6040,7 @@
   {
     "category": "Paradas e rankings",
     "name": "Certificação RIAA",
-    "url": "https://en.wikipedia.org/wiki/RIAA_certification",
+    "url": "https://www.riaa.com/gold-platinum/",
     "description": "",
     "tags": []
   },
@@ -6111,7 +6089,7 @@
   {
     "category": "Paradas e rankings",
     "name": "Pro-Música Brasil",
-    "url": "http://pro-musicabr.org.br/",
+    "url": "https://pro-musicabr.org.br/",
     "description": "",
     "tags": []
   },
@@ -6234,7 +6212,7 @@
   {
     "category": "Plugins e instrumentos virtuais",
     "name": "Auto-Tune",
-    "url": "http://www.antarestech.com/product/auto-tune-pro/",
+    "url": "https://www.antarestech.com/",
     "description": "",
     "tags": [],
     "featured": true
@@ -6249,28 +6227,28 @@
   {
     "category": "Plugins e instrumentos virtuais",
     "name": "iZotope Ozone",
-    "url": "http://izotope.com",
+    "url": "https://izotope.com",
     "description": "",
     "tags": []
   },
   {
     "category": "Plugins e instrumentos virtuais",
     "name": "Kontakt",
-    "url": "http://www.native-instruments.com",
+    "url": "https://www.native-instruments.com/products/kontakt",
     "description": "",
     "tags": []
   },
   {
     "category": "Plugins e instrumentos virtuais",
     "name": "Melodyne",
-    "url": "http://www.celemony.com/",
+    "url": "https://www.celemony.com/",
     "description": "",
     "tags": []
   },
   {
     "category": "Plugins e instrumentos virtuais",
     "name": "Native Instruments",
-    "url": "http://www.native-instruments.com",
+    "url": "https://www.native-instruments.com",
     "description": "",
     "tags": []
   },
@@ -6284,7 +6262,7 @@
   {
     "category": "Plugins e instrumentos virtuais",
     "name": "Roland Cloud",
-    "url": "https://www.rolandcloud.com/",
+    "url": "https://www.roland.com/cloud/",
     "description": "",
     "tags": []
   },
@@ -6298,7 +6276,7 @@
   {
     "category": "Plugins e instrumentos virtuais",
     "name": "Spitfire LABS",
-    "url": "https://labs.spitfireaudio.com/",
+    "url": "https://splice.com/instrument/labs-instrument",
     "description": "",
     "tags": []
   },
@@ -6320,7 +6298,7 @@
   {
     "category": "Plugins e instrumentos virtuais",
     "name": "Waves",
-    "url": "http://www.waves.com/",
+    "url": "https://www.waves.com/",
     "description": "",
     "tags": []
   },
@@ -6363,7 +6341,7 @@
   {
     "category": "Premiações",
     "name": "Juno Awards",
-    "url": "http://www.junoawards.ca/",
+    "url": "https://www.junoawards.ca/",
     "description": "",
     "tags": []
   },
@@ -6378,7 +6356,7 @@
   {
     "category": "Premiações",
     "name": "Mercury Prize",
-    "url": "http://www.mercuryprize.com",
+    "url": "https://www.mercuryprize.com",
     "description": "",
     "tags": []
   },
@@ -6407,7 +6385,7 @@
   {
     "category": "Premiações",
     "name": "Polar Music Prize",
-    "url": "http://www.polarmusicprize.org/",
+    "url": "https://www.polarmusicprize.org/",
     "description": "",
     "tags": [],
     "featured": true
@@ -6415,7 +6393,7 @@
   {
     "category": "Premiações",
     "name": "Prêmio da Música Brasileira",
-    "url": "http://www.premiodamusica.com.br/",
+    "url": "https://www.premiodamusica.com.br/",
     "description": "",
     "tags": []
   },
@@ -6710,7 +6688,7 @@
   {
     "category": "Produção musical (DAWs)",
     "name": "Cakewalk",
-    "url": "http://cakewalk.com/",
+    "url": "https://cakewalk.com/",
     "description": "",
     "tags": []
   },
@@ -6789,8 +6767,8 @@
   },
   {
     "category": "Produção musical (DAWs)",
-    "name": "Studio One",
-    "url": "https://www.presonus.com/products/studio-one",
+    "name": "Studio One (Fender Studio Pro)",
+    "url": "https://www.fender.com/pages/fender-studio-pro",
     "description": "",
     "tags": []
   },
@@ -6827,14 +6805,14 @@
   {
     "category": "Revistas e crítica",
     "name": "BrooklynVegan",
-    "url": "http://brooklynvegan.com",
+    "url": "https://brooklynvegan.com",
     "description": "",
     "tags": []
   },
   {
     "category": "Revistas e crítica",
     "name": "Clash",
-    "url": "http://clashmusic.com",
+    "url": "https://clashmusic.com",
     "description": "",
     "tags": []
   },
@@ -6848,14 +6826,14 @@
   {
     "category": "Revistas e crítica",
     "name": "Consequence",
-    "url": "http://www.consequence.net",
+    "url": "https://www.consequence.net",
     "description": "",
     "tags": []
   },
   {
     "category": "Revistas e crítica",
     "name": "Kerrang!",
-    "url": "http://www.kerrang.com",
+    "url": "https://www.kerrang.com",
     "description": "",
     "tags": []
   },
@@ -6870,14 +6848,14 @@
   {
     "category": "Revistas e crítica",
     "name": "Metal Injection",
-    "url": "http://www.metalinjection.net/",
+    "url": "https://www.metalinjection.net/",
     "description": "",
     "tags": []
   },
   {
     "category": "Revistas e crítica",
     "name": "Mojo",
-    "url": "http://www.mojo4music.com/",
+    "url": "https://www.mojo4music.com/",
     "description": "",
     "tags": []
   },
@@ -6929,7 +6907,7 @@
   {
     "category": "Revistas e crítica",
     "name": "Rolling Stone Brasil",
-    "url": "https://rollingstone.uol.com.br/",
+    "url": "https://rollingstone.com.br/",
     "description": "",
     "tags": []
   },
@@ -6950,14 +6928,14 @@
   {
     "category": "Revistas e crítica",
     "name": "The Fader",
-    "url": "http://www.thefader.com/",
+    "url": "https://www.thefader.com/",
     "description": "",
     "tags": []
   },
   {
     "category": "Revistas e crítica",
     "name": "The Quietus",
-    "url": "http://thequietus.com/",
+    "url": "https://thequietus.com/",
     "description": "",
     "tags": []
   },
@@ -7041,14 +7019,14 @@
   {
     "category": "Rádios",
     "name": "Rádio Cultura FM",
-    "url": "http://culturafm.cmais.com.br/culturafm",
+    "url": "https://cultura.uol.com.br/radio/",
     "description": "",
     "tags": []
   },
   {
     "category": "Rádios",
     "name": "Rádio Nacional",
-    "url": "http://radios.ebc.com.br/",
+    "url": "https://radios.ebc.com.br/",
     "description": "",
     "tags": []
   },
@@ -7137,7 +7115,7 @@
   {
     "category": "Sessions e música ao vivo",
     "name": "Coke Studio Pakistan",
-    "url": "http://www.cokestudio.com.pk/",
+    "url": "https://www.youtube.com/@cokestudio",
     "description": "",
     "tags": []
   },
@@ -7158,7 +7136,7 @@
   {
     "category": "Sessions e música ao vivo",
     "name": "Ensaio (TV Cultura)",
-    "url": "http://tvcultura.cmais.com.br/ensaio",
+    "url": "https://cultura.uol.com.br/programas/ensaio/",
     "description": "",
     "tags": []
   },
@@ -7269,7 +7247,7 @@
   {
     "category": "Sessions e música ao vivo",
     "name": "Live from Daryl's House",
-    "url": "http://www.livefromdarylshouse.com",
+    "url": "https://www.youtube.com/@realdarylhall",
     "description": "",
     "tags": []
   },
@@ -7306,7 +7284,7 @@
   {
     "category": "Sessions e música ao vivo",
     "name": "MTV Unplugged",
-    "url": "http://www.mtv.com/music/unplugged/",
+    "url": "https://en.wikipedia.org/wiki/MTV_Unplugged",
     "description": "",
     "tags": [],
     "featured": true
@@ -7353,7 +7331,7 @@
   {
     "category": "Sessions e música ao vivo",
     "name": "Rockpalast",
-    "url": "https://en.wikipedia.org/wiki/Rockpalast",
+    "url": "https://www1.wdr.de/fernsehen/rockpalast/",
     "description": "",
     "tags": []
   },
@@ -7474,7 +7452,7 @@
   {
     "category": "Shows e ingressos",
     "name": "Eventim",
-    "url": "http://www.eventim.de/",
+    "url": "https://www.eventim.de/",
     "description": "",
     "tags": []
   },
@@ -7751,7 +7729,7 @@
   {
     "category": "Sites e blogs brasileiros",
     "name": "Rolling Stone Brasil (site)",
-    "url": "https://rollingstone.uol.com.br/",
+    "url": "https://rollingstone.com.br/",
     "description": "",
     "tags": []
   },
@@ -7788,7 +7766,7 @@
   {
     "category": "Sites e blogs brasileiros",
     "name": "Venenos do Rock",
-    "url": "https://venenosdorock.blogspot.com/",
+    "url": "https://www.venenosdorock.com.br/",
     "description": "",
     "tags": []
   },
