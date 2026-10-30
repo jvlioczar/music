@@ -184,7 +184,7 @@ function compareCats(a,b){
 }
 const I18N = {
   pt: {
-    brand:"A Biblioteca da Música",
+    brand:"A Biblioteca de Música",
     search:"Buscar por nome",
     allCats:"Todas as categorias",
     visit:"Acesse",
@@ -192,7 +192,7 @@ const I18N = {
     items:"itens",
     noResults:"Nenhum resultado.",
     footerLeadPre:"",
-    projectName:"A Biblioteca da Música",
+    projectName:"A Biblioteca de Música",
     footerLeadPost:"foi idealizada por Julio Cesar Prava e construída com a ajuda de IA. O projeto reúne itens selecionados e revisados por curadores humanos.",
     bookmarkShare:"Salve esse projeto nos seus favoritos e compartilhe!",
     thanks:"Obrigado pela visita!",
@@ -592,7 +592,7 @@ function ensureTopButton(){
 }
 function updateDocTitleAndMeta(){
   const lang=getLang();
-  const name = lang==='en' ? 'BiblioVerse — The Music Library' : 'BiblioVerse — A Biblioteca da Música';
+  const name = lang==='en' ? 'BiblioVerse — The Music Library' : 'BiblioVerse — A Biblioteca de Música';
   const desc = lang==='en' ? 'Searchable catalog of music essentials by category' : 'Catálogo pesquisável do essencial da música por categoria';
   document.title = name + ' — ' + desc;
   const meta=document.querySelector('meta[name="description"]'); if(meta){ meta.setAttribute('content', desc); }
